@@ -1,0 +1,12 @@
+.DS_Store
+.eslintrc
+.gitignore
+.npmignore
+.editorconfig
+.vscode
+README.md
+.eslintignore
+test
+scripts
+example
+examples
