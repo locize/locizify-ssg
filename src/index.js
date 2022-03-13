@@ -36,6 +36,10 @@ const ssgLng = async (htmlFile, lng, outputFile, locizifyOptions) => {
   })
   await init
 
+  if (dom.window.document.body.style && dom.window.document.body.style.display === 'none') {
+    dom.window.document.body.style.display = 'block'
+  }
+
   let serialized = dom.serialize()
 
   // if locizify is used as code, set the language

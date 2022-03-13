@@ -1,8 +1,8 @@
 import babel from 'rollup-plugin-babel'
-import nodeResolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
-import { terser } from 'rollup-plugin-terser'
-import pkg from './package.json'
+// import nodeResolve from 'rollup-plugin-node-resolve'
+// import commonjs from 'rollup-plugin-commonjs'
+// import { terser } from 'rollup-plugin-terser'
+// import pkg from './package.json'
 
 const getBabelOptions = ({ useESModules, plugins = [] }) => ({
   exclude: /node_modules/,
@@ -46,7 +46,7 @@ export default [
     //   ...Object.keys(pkg.dependencies || {})
     // ],
     plugins: [babel(getBabelOptions({ useESModules: true }))]
-  },
+  }//,
   // this is not used, if we make sure every js file is imported with .js ending
   // {
   //   input,
