@@ -5,10 +5,11 @@ import fetch from 'cross-fetch'
 const ssgLng = async (htmlFile, lng, outputFile, locizifyOptions) => {
   // initialize dom
   const virtualConsole = new VirtualConsole()
-  virtualConsole.sendTo(console)
+  virtualConsole.sendTo(console, { omitJSDOMErrors: true })
   const dom = await JSDOM.fromFile(htmlFile, {
     virtualConsole,
-    pretendToBeVisual: true
+    pretendToBeVisual: true,
+    runScripts: 'dangerously'
   })
 
   // polyfill some stuff...
@@ -27,6 +28,7 @@ const ssgLng = async (htmlFile, lng, outputFile, locizifyOptions) => {
 
   // locizify on server side
   const locizify = (await import('locizify')).default
+  dom.window.locizify = locizify
   const init = new Promise((resolve) => {
     locizify.i18next.on('initialized', resolve)
     locizify.init({
@@ -35,6 +37,12 @@ const ssgLng = async (htmlFile, lng, outputFile, locizifyOptions) => {
     })
   })
   await init
+
+  if (typeof dom.window.locizifySSG === 'function') {
+    try {
+      dom.window.locizifySSG()
+    } catch (err) { }
+  }
 
   if (dom.window.document.body.style && dom.window.document.body.style.display === 'none') {
     dom.window.document.body.style.display = 'block'
