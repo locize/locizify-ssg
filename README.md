@@ -2,6 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/locizify-ssg.svg?style=flat-square)](https://www.npmjs.com/package/locizify-ssg)
 
+**EXPERIMENTAL**
+
 This package helps to generate website pages on server side that uses [locizify](https://github.com/locize/locizify). This may help to improve SEO, etc.
 
 # Getting started
