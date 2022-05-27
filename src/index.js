@@ -27,7 +27,10 @@ const ssgLng = async (htmlFile, lng, outputFile, locizifyOptions) => {
   if (locizifyScript) locizifyScript.setAttribute('lng', lng)
 
   // locizify on server side
-  const locizify = (await import('locizify')).default
+  let locizify = (await import('locizify')).default
+  if (locizify.default) { // in ESM seems there are 2 default nestings
+    locizify = locizify.default
+  }
   dom.window.locizify = locizify
   const init = new Promise((resolve) => {
     locizify.i18next.on('initialized', resolve)
