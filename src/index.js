@@ -41,6 +41,15 @@ const ssgLng = async (htmlFile, lng, outputFile, locizifyOptions) => {
   })
   await init
 
+  if (dom.window.document.title) {
+    const keyTitle = dom.window.document.getElementsByTagName('title').length > 0 && dom.window.document.getElementsByTagName('title')[0].getAttribute(locizify.i18next.options.keyAttr)
+    dom.window.document.title = locizify.i18next.t(keyTitle || dom.window.document.title)
+  }
+  if (dom.window.document.querySelector('meta[name="description"]') && dom.window.document.querySelector('meta[name="description"]').content) {
+    const keyDescr = dom.window.document.querySelector('meta[name="description"]').getAttribute(locizify.i18next.options.keyAttr) || dom.window.document.querySelector('meta[name="description"]').content
+    dom.window.document.querySelector('meta[name="description"]').setAttribute('content', locizify.i18next.t(keyDescr))
+  }
+
   if (typeof dom.window.locizifySSG === 'function') {
     try {
       dom.window.locizifySSG()
