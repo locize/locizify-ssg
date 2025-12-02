@@ -50,7 +50,7 @@
   "dependencies": {
     "cross-fetch": "4.1.0",
     "jsdom": "20.0.1",
-    "locizify": "7.0.1"
+    "locizify": "7.0.2"
   },
   "devDependencies": {
     "@babel/core": "7.28.5",
