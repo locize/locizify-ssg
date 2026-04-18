@@ -49,17 +49,17 @@
   "license": "MIT",
   "dependencies": {
     "cross-fetch": "4.1.0",
-    "jsdom": "27.4.0",
-    "locizify": "9.0.8"
+    "jsdom": "29.0.2",
+    "locizify": "9.0.10"
   },
   "devDependencies": {
-    "@babel/core": "7.28.5",
-    "@babel/plugin-transform-runtime": "7.28.5",
-    "@babel/preset-env": "7.28.5",
+    "@babel/core": "7.29.0",
+    "@babel/plugin-transform-runtime": "7.29.0",
+    "@babel/preset-env": "7.29.2",
     "babel-plugin-add-module-exports": "1.0.4",
     "eslint": "9.39.2",
     "eslint-plugin-import": "2.32.0",
-    "neostandard": "0.12.2",
+    "neostandard": "0.13.0",
     "rollup": "2.79.1",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
