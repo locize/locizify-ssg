@@ -1,6 +1,5 @@
 import { JSDOM, VirtualConsole } from 'jsdom'
 import { writeFile } from 'fs/promises'
-import fetch from 'cross-fetch'
 
 // Validate that `lng` is safe to use as both a filesystem-path segment
 // (it is interpolated into the output file path via `outputFile.replace`)
@@ -33,8 +32,9 @@ const ssgLng = async (htmlFile, lng, outputFile, locizifyOptions) => {
     runScripts: 'dangerously'
   })
 
-  // polyfill some stuff...
-  global.fetch = fetch
+  // expose the jsdom-provided DOM APIs as Node globals so locizify (which
+  // expects a browser-like environment) can find them. `global.fetch` is no
+  // longer assigned here — Node ≥ 18 already exposes a native `fetch` global.
   global.window = dom.window
   global.document = dom.window.document
   global.DOMParser = dom.window.DOMParser
