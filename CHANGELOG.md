@@ -1,3 +1,7 @@
+### 3.0.3
+
+- update locizify dep
+
 ### 3.0.2
 
 - update locizify dep
