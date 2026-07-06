@@ -1,3 +1,7 @@
+### 3.0.1
+
+- update locizify dep
+
 ### 3.0.0
 
 - BREAKING: bumped `locizify` to v10. v10 dropped the `cross-fetch` dependency (via the upstream `i18next-locize-backend@10` and `i18nextify@5` bumps) and now requires native `fetch` (Node ≥ 18, modern browsers, Deno, Bun — all of which ship it). For runtimes without native `fetch`, install a ponyfill yourself, or stay on v2.x.
