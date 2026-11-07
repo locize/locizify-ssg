@@ -1,3 +1,8 @@
+### 4.0.0
+
+- BREAKING: uses locizify 11 (i18nextify 6 with i18next 27). An empty translation (`""`) now renders the page's own text, like a missing one, instead of an empty element; pass `returnEmptyString: true` in the locizify options to keep empty translations blank. The [locizify changelog](https://github.com/locize/locizify/blob/master/CHANGELOG.md) and the [i18next migration guide](https://www.i18next.com/misc/migration-guide#v26.x.x-to-v27.0.0) list the details.
+- BREAKING: minimum Node version is now 22 (`engines.node = ">=22"`), as for i18next 27.
+
 ### 3.0.7
 
 - update locizify dep
