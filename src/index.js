@@ -39,6 +39,12 @@ const ssgLng = async (htmlFile, lng, outputFile, locizifyOptions) => {
   global.document = dom.window.document
   global.DOMParser = dom.window.DOMParser
   global.MutationObserver = dom.window.MutationObserver
+  // locize decides at import time whether the page runs inside the InContext
+  // editor iframe (`self !== top`, and `true` if that throws). Without these
+  // two globals the check throws in Node and every rendered text gets the
+  // editor's invisible key markers.
+  global.self = dom.window.self
+  global.top = dom.window.top
 
   // use correct lang attribute
   dom.window.document.documentElement.lang = lng
